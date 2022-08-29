@@ -1,5 +1,6 @@
 package framework;
 
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -44,6 +45,11 @@ public class ElementControl {
 		Select selectDropdown = new Select(element);
 
 		selectDropdown.selectByVisibleText(text);
+	}
+
+	public Point getLocation(WebElement element) {
+		return element.getLocation();
+
 	}
 
 }
