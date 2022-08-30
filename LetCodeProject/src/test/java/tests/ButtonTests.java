@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import foundation.LetCodeTestBase;
 import pages.HomePage;
 
-public class ButtonTest extends LetCodeTestBase {
+public class ButtonTests extends LetCodeTestBase {
 	@Test
 	public void canGetLocationOfButton() {
 

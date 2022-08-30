@@ -17,6 +17,10 @@ public class HomePage extends PageObjectBase {
 	@FindBy(xpath = "//a[@href='/buttons']")
 	private WebElement buttonsButton;
 
+	@CacheLookup
+	@FindBy(xpath = "//a[@href='/dropdowns']")
+	private WebElement selectButton;
+
 	public HomePage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
@@ -37,6 +41,12 @@ public class HomePage extends PageObjectBase {
 		elementControl.clickElement(buttonsButton);
 
 		return new ButtonPage(getDriver(), getRelativeUrl());
+	}
+
+	public SelectPage clickSelectButton() {
+		elementControl.clickElement(selectButton);
+
+		return new SelectPage(getDriver(), getRelativeUrl());
 	}
 
 	@Override
