@@ -23,6 +23,10 @@ public class SelectPage extends PageObjectBase{
 	@FindBy(xpath = "//select[@id='lang']")
 	private WebElement programmingLanguage;
 
+	@CacheLookup
+	@FindBy(xpath = "//select[@id='country']")
+	private WebElement countryList;
+
 	protected SelectPage(WebDriver driver, String baseUrl) {
 		super(driver, baseUrl);
 	}
@@ -39,10 +43,6 @@ public class SelectPage extends PageObjectBase{
 
 	}
 
-	//public SelectPage selectHero(String hero) {
-
-	//}
-
 	public SelectPage selectLastProgrammingLanguage() {
 
 		Select languages = new Select (getDriver().findElement(By.id("lang")));
@@ -54,6 +54,21 @@ public class SelectPage extends PageObjectBase{
 		System.out.println(programmingLanguage.getText());
 
 		return this;
+
+	}
+
+	public String selectCountryByValue(String country) {
+
+		Select select = new Select(countryList);
+		select.selectByValue(country);
+
+		WebElement firstOption = select.getFirstSelectedOption();
+		String firstOptionText = firstOption.getText();
+		System.out.println("Selected Country: " + firstOptionText);
+
+		return firstOptionText;
+
+
 
 	}
 
