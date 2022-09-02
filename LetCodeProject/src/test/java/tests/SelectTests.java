@@ -24,4 +24,14 @@ public class SelectTests extends LetCodeTestBase{
 			System.out.println("Found " + fruit + " at index " + intIndex);
 		}
 	}
+
+	@Test
+	public void canSelectMultipleHeros() {
+
+		new HomePage(getDriver(), getBaseUrl())
+		.navigate()
+		.clickSelectButton()
+		.selectLastProgrammingLanguage();
+
+	}
 }
